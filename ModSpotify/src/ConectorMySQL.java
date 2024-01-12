@@ -11,27 +11,35 @@ import java.sql.Statement;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 /**
- *
+ * Clase que conecta a la base de datos
  * @author PC GAMING
  */
 public class ConectorMySQL {
-
+// Variables de la clase
     private Connection _conexion;
     private String _host = "localhost";
     private String _bd = "spotifymod";
     private String _usuario = "root";
     private String _password = "";
-
+/**
+ * Constructor por el que según sus parámetros nos conectará a la base de datos
+ * @param host Define el host para la conexión
+ * @param bd    Define la base de datos que utilizamos
+ * @param usuario Define el usuario que se va a conectar
+ * @param password Define la contraseña del usuario que se va a conectar
+ */
     public ConectorMySQL(String host, String bd, String usuario, String password) {
         _host = host;
         _bd = bd;
         _usuario = usuario;
         _password = password;
     }
-
+/**
+ * Método por el que se conectará a la base de datos
+ * @throws  SQLException  Si la conexión da error
+ */
     public void conectar() throws SQLException {
         String url = "jdbc:mysql://" + _host + "/" + _bd;
-
         try {
             _conexion = DriverManager.getConnection(url, _usuario, _password);
             System.out.println("> Conexión a la base de datos exitosa.");
@@ -40,7 +48,10 @@ public class ConectorMySQL {
             throw ex;
         }
     }
-
+/**
+ * Método por el que se desconectará a la base de datos
+ * @throws  SQLException  Si la conexión da error al cerrar la base de datos
+ */
     public void desconectar() throws SQLException {
         if (_conexion != null) {
             try {
@@ -52,7 +63,10 @@ public class ConectorMySQL {
             }
         }
     }
-
+/**
+ * Método por el que se realizará consultas a la base de datos
+ * @throws  SQLException  Si la consulta da error
+ */
     public void realizarConsulta(String consulta) throws SQLException {
 
         conectar();
@@ -86,7 +100,10 @@ public class ConectorMySQL {
             desconectar();
         }
     }
-
+/**
+ * Método por el que se creará la base de datos limpia(vacía)
+ * @throws  SQLException  Si la consulta da error
+ */
     public void inicializacionLimpia() throws SQLException {
         conectar();
 
@@ -136,19 +153,31 @@ public class ConectorMySQL {
     private String _titulo;
     private String _descripcion;
     private String _cantantes;
-
+/**
+ * Método que devuelve el título
+ * @return El nombre del título
+ */
     public String getTitulo() {
         return _titulo;
     }
-
+/**
+ * Método que devuelve la descripción
+ * @return La descripción de la canción
+ */
     public String getDescripcion() {
         return _descripcion;
     }
-
+/**
+ * Método que devuelve el cantante
+ * @return El nombre del cantante
+ */
     public String getCantantes() {
         return _cantantes;
     }
-
+/**
+ * Método que devuelve la conexión
+ * @return La conexion
+ */
     public Connection getConexion() {
         return _conexion;
     }

@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 /**
- *
+ *Clase para registrar géneros, descripción, título y cantantes
  * @author PC GAMING
  */
 public class registroBBDD extends javax.swing.JFrame {

@@ -22,7 +22,7 @@ import javax.swing.SwingUtilities;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 /**
- *
+ *Clase en la que se muestra los géneros musicales
  * @author PC GAMING
  */
 public class Ventana extends javax.swing.JFrame {
@@ -31,10 +31,12 @@ public class Ventana extends javax.swing.JFrame {
      * Creates new form Ventana
      */
     ConectorMySQL datos = new ConectorMySQL("localhost", "spotifymod", "root", "");
+    // Lista de géneros válidos para el programa
     private List<String> generosValidos = Arrays.asList(
             "Rock", "Pódcast", "Novedades", "Pop", "Hip Hop", "Gaming", "Amor", "Jazz", "Relax", "Electrónica", "Anime",
             "Para dormir", "Ejercicio", "Para estar en casa", "Salsa"
     );
+    //Variables de la clase
     private int contadorErrores = 0;
     private final int limiteErrores = 3;
 

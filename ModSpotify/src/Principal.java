@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Clase que proporciona la opción de cargar base de datos o iniciar una de cero+
  * @author PC GAMING
  */
 public class Principal extends javax.swing.JFrame {

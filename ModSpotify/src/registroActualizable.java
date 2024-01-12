@@ -13,7 +13,7 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
 /**
- *
+ *Clase con la que se puede actualizar la información de la tabla de la base de datos
  * @author PC GAMING
  */
 public class registroActualizable extends javax.swing.JFrame {
@@ -294,6 +294,9 @@ public class registroActualizable extends javax.swing.JFrame {
         new registroBBDD().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+    /**
+     * El método permite actualizar las columnas de la base de datos
+     */
     private void actualizarBaseDeDatos(String genero, int columna, String nuevoValor) {
         try {
             ConectorMySQL conector = new ConectorMySQL("localhost", "spotifymod", "root", "");

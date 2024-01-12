@@ -4,8 +4,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 /**
+ *Clase que proporciona la información de los géneros de la base de datos
  *
  * @author usuario
+ * @version 2024
  */
 import javax.swing.*;
 import java.awt.*;
@@ -14,12 +16,17 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class jGeneroInfo2 extends JFrame {
+// Variables de la clase
 
     private JLabel titleLabel;
     private JTextArea descripcionTextArea; // Componente para la descripción
     private JTextArea cantantesTextArea;    // Componente para los cantantes
     private JList<String> jList;
 
+    /**
+     * Constructor de la clase que forma parte del diseño y funcionamiento del
+     * programa
+     */
     public jGeneroInfo2() {
         setTitle("Información del Género Musical");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,11 +81,17 @@ public class jGeneroInfo2 extends JFrame {
         });
     }
 
+    /**
+     * El método permitirá abrir la ventana del cantante seleccionado
+     */
     private void abrirVentanaCantantesMusica(String cantanteSeleccionado) {
         CantantesMusica ventanaCantantes = new CantantesMusica(cantanteSeleccionado);
         ventanaCantantes.setVisible(true);
     }
 
+    /**
+     * El método actualizará los datos del género
+     */
     public void actualizarDatos(String titulo, String descripcion, String cantantes, ArrayList<String> elementos) {
         titleLabel.setText(titulo);
         descripcionTextArea.setText(descripcion);
