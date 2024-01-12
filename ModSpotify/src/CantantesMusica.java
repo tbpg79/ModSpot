@@ -13,16 +13,19 @@ import jaco.mp3.player.MP3Player;
 /**
  *
  * @author usuario
+ * @version 2024
  */
 public class CantantesMusica extends javax.swing.JFrame {
 
+    //Campos de la clase
     private boolean reproduciendo = false;
     private MP3Player mp3Player;
     private String currentSong = "";
     private String cancionSeleccionada;
 
     /**
-     * Creates new form CantantesMusica
+     * Constructor para cada cantante que hay
+     * @param cantante El parámetro cantante define el nombre del cantante por el que se va a obtener sus canciones en una lista
      */
     public CantantesMusica(String cantante) {
         initComponents();
@@ -39,6 +42,13 @@ public class CantantesMusica extends javax.swing.JFrame {
         listaCanciones.setModel(listModel);
     }
 
+    /**
+     * Método para obtener las canciones que hay en una lista
+     *
+     * @param cantante El parámetro cantante define cuáles son sus canciones y
+     * los guarda en una lista
+     * @return Devolverá las canciones de dicho cantante pasado por parámetro
+     */
     private ArrayList<String> obtenerCancionesDelCantante(String cantante) {
         // Crea una lista de canciones ficticias para el cantante (deberás sustituir esto por tu lógica real)
         ArrayList<String> canciones = new ArrayList<>();
@@ -129,7 +139,6 @@ public class CantantesMusica extends javax.swing.JFrame {
         }
         return canciones;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -254,7 +263,9 @@ public class CantantesMusica extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Método que reproduce la canción seleccionada
+     */
     private void reproducirCancionSeleccionada() {
         cancionSeleccionada = listaCanciones.getSelectedValue();
         if (cancionSeleccionada != null && !cancionSeleccionada.equals(currentSong)) {
@@ -269,6 +280,9 @@ public class CantantesMusica extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Método que detiene la canción seleccionada
+     */
     private void detenerReproduccion() {
         if (mp3Player != null) {
             mp3Player.stop(); // Detén la reproducción
@@ -293,7 +307,7 @@ public class CantantesMusica extends javax.swing.JFrame {
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         // TODO add your handling code here:
-                    detenerReproduccion();
+        detenerReproduccion();
         new Ventana().setVisible(true);
         dispose();
     }//GEN-LAST:event_botonVolverActionPerformed
